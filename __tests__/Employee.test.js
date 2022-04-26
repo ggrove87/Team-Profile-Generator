@@ -19,13 +19,40 @@ describe("Employee", () => {
   });
 
   describe("getName", () => {
-    it("should return the name of the employee", () => {});
+    it("should return the name of the employee", () => {
+      let name = "Reniel";
+      let id = 1;
+      let email = "Reniel@gmail.com";
+      //Act
+      let employee = new Employee(name, id, email);
+      let employeeName = employee.getName()
+      //Assert
+      expect(name).toEqual(employeeName);
+    });
   });
   describe("getId", () => {
-    it("should return the id of the employee", () => {});
+    it("should return the id of the employee", () => {
+      let name = "Reniel";
+      let id = 1;
+      let email = "Reniel@gmail.com";
+      //Act
+      let employee = new Employee(name, id, email);
+      let employeeId = employee.getId();
+      //Assert
+      expect(id).toEqual(employeeId);
+    });
   });
   describe("getEmail", () => {
-    it("should return the email of the employee", () => {});
+    it("should return the email of the employee", () => {
+      let name = "Reniel";
+      let id = 1;
+      let email = "Reniel@gmail.com";
+      //Act
+      let employee = new Employee(name, id, email);
+      let employeeEmail = employee.getEmail();
+      //Assert
+      expect(email).toEqual(employeeEmail);
+    });
   });
   describe("getRole", () => {
     it("should return Employee when getRole is called ", () => {

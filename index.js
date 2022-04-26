@@ -231,10 +231,6 @@ function buildCards(array) {
             </div>
         </div>`;
         }
-    // let lineEl = document.createElement("li");
-    // lineEl.innerText(array[i].getRole())
-    // employeeList.appendChild(lineEl);
-    // console.log(array[i].getRole())
   }
 
   return cardString;

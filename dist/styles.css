@@ -1,0 +1,11 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    color: white;
+    background-color: rgba(206, 3, 3, 0.826);
+    height: 25vh;
+}
+

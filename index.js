@@ -192,45 +192,63 @@ function renderHTML(array) {
 function buildCards(array) {
   let cardString = "";
   for (let i = 0; i < array.length; i++) {
-     if(array[i].getRole() === "Manager") {
-  cardString += 
-  `<div class="card">
-            <h5 class="card-title">${array[i].getRole()}</h5>
+    if (array[i].getRole() === "Manager") {
+      cardString += `<div class="card">
+            <div class="card-title">
+            <h5>${array[i].getRole()}</h5>
+            <p id="manager-name">${array[i].getName()}</p>
+            </div>
             <img src="" alt="managerIcon">
             <div class="card-body">
-                
-                <p id="manager-name">Name: ${array[i].getName()}</p>
                 <p id="manager-id">ID: ${array[i].getId()}</p>
-                <p id="manager-email">email: ${array[i].getEmail()}</p>
-                <p id="manager-office">Office Number: ${array[i].officeNumber}</p>
+                <p id="manager-email">email: <a href="mailto:${array[
+                  i
+                ].getEmail()}">
+                ${array[i].getEmail()}</a></p>
+                <p id="manager-office">Office Number: ${
+                  array[i].officeNumber
+                }</p>
             </div>
-        </div>`;} else if(array[i].getRole() === "Engineer"){
-            cardString +=
-            `<div class="card">
-            <h5 class="card-title">${array[i].getRole()}</h5>
+        </div>`;
+    } else if (array[i].getRole() === "Engineer") {
+      cardString += `<div class="card">
+            <div class="card-title">
+            <h5>${array[i].getRole()}</h5>
+            <p id="engineer-name">${array[i].getName()}</p>
+            </div>
             <img src="" alt="engineerIcon">
             <div class="card-body">
                 
-                <p id="engineer-name">Name: ${array[i].getName()}</p>
+                
                 <p id="engineer-id">ID: ${array[i].getId()}</p>
-                <p id="engineer-email">email: ${array[i].getEmail()}</p>
-                <p id="engineer-gitHub">GitHub Username: ${array[i].github}</p>
+                <p id="engineer-email">email: <a href="mailto:${array[
+                  i
+                ].getEmail()}">
+                ${array[i].getEmail()}</a></p>
+                <p id="engineer-gitHub">GitHub Username: 
+                <a href="https://github.com/${
+                  array[i].github
+                }" target="_blank">${array[i].github}</a>
+                </p>
             </div>
         </div>`;
-        } else if (array[i].getRole() === "Intern") {
-            cardString += 
-            `<div class="card">
-            <h5 class="card-title">${array[i].getRole()}</h5>
+    } else if (array[i].getRole() === "Intern") {
+      cardString += `<div class="card">
+            <div class="card-title">
+            <h5>${array[i].getRole()}</h5>
+             <p id="intern-name">${array[i].getName()}</p>
+             </div>
             <img src="" alt="internIcon">
             <div class="card-body">
-                
-                <p id="intern-name">Name: ${array[i].getName()}</p>
                 <p id="intern-id">ID: ${array[i].getId()}</p>
-                <p id="intern-email">email: ${array[i].getEmail()}</p>
+                <p id="intern-email">email: <a href="mailto:${array[
+                  i
+                ].getEmail()}">
+                ${array[i].getEmail()}</a></p>
                 <p id="intern-office">School: ${array[i].school}</p>
             </div>
         </div>`;
-        }
+    }
   }
 
   return cardString;

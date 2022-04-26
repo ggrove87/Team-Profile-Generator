@@ -4,25 +4,25 @@ describe("Intern", () => {
     describe("Initialization", () => {
       it("should set the values of name, id, email, and school when i set them.", () => {
         // Arrange
-        let name = "Reniel";
+        let name = "Gene";
         let id = 1;
-        let email = "Reniel@gmail.com";
+        let email = "Gene@gmail.com";
         let school = "Northwestern";
         //Act
         let intern = new Intern(name, id, email, school);
   
         //Assert
-        expect(intern.name).toEqual("Reniel");
+        expect(intern.name).toEqual("Gene");
         expect(intern.id).toEqual(1);
-        expect(intern.email).toEqual("Reniel@gmail.com");
+        expect(intern.email).toEqual("Gene@gmail.com");
         expect(intern.school).toEqual("Northwestern");
       });
     });
     describe("getSchool", () => {
         it("should return the school of the Intern", () => {
-          let name = "Reniel";
+          let name = "Gene";
           let id = 1;
-          let email = "Reniel@gmail.com";
+          let email = "Gene@gmail.com";
           let school = "Northwestern";
           //Act
           let intern = new Intern(name, id, email, school);
@@ -35,9 +35,9 @@ describe("Intern", () => {
         it("should return Intern when getRole is called ", () => {
           //Arrange
           // Arrange
-          let name = "Reniel";
+          let name = "Gene";
           let id = 1;
-          let email = "Reniel@gmail.com";
+          let email = "Gene@gmail.com";
           let school = "Northwestern";
           let intern = new Intern(name, id, email, school);
     

@@ -9,3 +9,10 @@ h1 {
     height: 25vh;
 }
 
+#employeeList {
+    display: flex;
+}
+
+.card-title {
+    background-color: lightskyblue;
+}

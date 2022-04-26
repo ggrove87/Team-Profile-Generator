@@ -4,6 +4,7 @@ const inquirer = require("inquirer");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
+let employees = [];
 
 
 // prompts the user to enter the manager information and which, if any, additional team members to add
@@ -48,7 +49,7 @@ inquirer
       } else if (userSelection.addAdditionalTeamMembers === "Intern") {
           renderInternQuestions();
       } else {
-          renderHTML(userSelection);
+          renderHTML(employees);
       }
   }
 
@@ -84,8 +85,8 @@ inquirer
       },
     ])
     .then((response) => {
-        determineNextAction(response.addAdditionalTeamMembers),
-        createEngineer(response)
+        createEngineer(response),
+        determineNextAction(response)
     });
   }
 
@@ -96,22 +97,22 @@ inquirer
       {
         type: 'input',
         message: "What is your Intern's name?",
-        name: 'InternName',
+        name: 'internName',
       },
       {
           type: 'input',
           message: "What is your Intern's id?",
-          name: 'InternID',
+          name: 'internID',
       },
       {
           type: 'input',
           message: "What is your Intern's email?",
-          name: 'InternEmail',
+          name: 'internEmail',
       }, 
       {
           type: 'input',
           message: "What is your Intern's school?",
-          name: 'InternSchool',
+          name: 'internSchool',
       },
       {
           type: 'list',
@@ -121,22 +122,25 @@ inquirer
       },
     ])
     .then((response) => {
-        determineNextAction(response.addAdditionalTeamMembers),
-        createIntern(response)
+        createIntern(response),
+        determineNextAction(response)
     });
   }
 
 function createManager(teamManager){
-  let newManager = new Manager(teamManager.managerName, teamManager.managerID, teamManager.managerEmail, teamManager.managerOfficeNumber)
+  let newManager = new Manager(teamManager.managerName, teamManager.managerID, teamManager.managerEmail, teamManager.managerOfficeNumber);
+  employees.push(newManager);
 }
 function createEngineer(engineer){
-  let newEngineer = new Engineer(engineer.engineerName, engineer.engineerID, engineer.engineerEmail, engineer.engineerGitHub)
+  let newEngineer = new Engineer(engineer.engineerName, engineer.engineerID, engineer.engineerEmail, engineer.engineerGitHub);
+  employees.push(newEngineer);
 }
 function createIntern(intern){
-  let newIntern = new Intern(intern.internName, intern.internID, intern.internEmail, intern.internSchool)
+  let newIntern = new Intern(intern.internName, intern.internID, intern.internEmail, intern.internSchool);
+  employees.push(newIntern);
 }
 
-function renderHTML(){
+function renderHTML(array){
     fs.writeFile("./dist/team.html",
     `<!DOCTYPE html>
     <html lang="en">
@@ -148,8 +152,21 @@ function renderHTML(){
         <title>Team Profile Generator</title>
     </head>
     <body>
-        <h1>My Team</h1>
+     <h1>My Team</h1>
+        <div id="employeeList"></div>
+        ${buildCards(array)}
+       
     </body>
     </html>`,
     (err) => (err ? console.error(err): console.log("Team page successfully generated!"))) 
+}
+
+function buildCards(array){
+    for (let i = 0; i < array.length; i++) {
+        
+        console.log(array[i])
+    }
+    // let lineEl = document.createElement("li");
+    // lineEl.innerText()  
+   
 }

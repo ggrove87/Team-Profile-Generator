@@ -32,7 +32,7 @@ describe("Engingeer", () => {
         });
       });
       describe("getRole", () => {
-        it("should return Employee when getRole is called ", () => {
+        it("should return Engineer when getRole is called ", () => {
           //Arrange
           // Arrange
           let name = "Reniel";

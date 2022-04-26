@@ -7,16 +7,45 @@ describe("Engingeer", () => {
         let name = "Reniel";
         let id = 1;
         let email = "Reniel@gmail.com";
-        let gitHub = "ggrove87";
+        let github = "ggrove87";
         //Act
-        let engingeer = new Engingeer(name, id, email, gitHub);
+        let engingeer = new Engineer(name, id, email, github);
   
         //Assert
         expect(engingeer.name).toEqual("Reniel");
         expect(engingeer.id).toEqual(1);
         expect(engingeer.email).toEqual("Reniel@gmail.com");
-        expect(engingeer.gitHub).toEqual("ggrove87");
+        expect(engingeer.github).toEqual("ggrove87");
       });
     });
-
+    describe("getGithub", () => {
+        it("should return the github username of the Engineer", () => {
+          let name = "Reniel";
+          let id = 1;
+          let email = "Reniel@gmail.com";
+          let github = "ggrove87";
+          //Act
+          let engineer = new Engineer(name, id, email, github);
+          let engineerGithub = engineer.getGithub();
+          //Assert
+          expect(github).toEqual(engineerGithub);
+        });
+      });
+      describe("getRole", () => {
+        it("should return Employee when getRole is called ", () => {
+          //Arrange
+          // Arrange
+          let name = "Reniel";
+          let id = 1;
+          let email = "Reniel@gmail.com";
+          let github = "ggrove87";
+          let engineer = new Engineer(name, id, email, github);
+    
+          //Act
+          let role = engineer.getRole();
+    
+          //Assert
+          expect(role).toEqual("Engineer");
+        });
+      });
 });

@@ -11,7 +11,7 @@ h1 {
 
 #employeeList {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .card {

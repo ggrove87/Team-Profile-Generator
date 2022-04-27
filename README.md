@@ -55,8 +55,5 @@ THEN I exit the application, and the HTML is generated
 
 ## Mock-Up
 
-The following image shows the web application's appearance and functionality:
 
-<br>
-
-![Image of the webpage being deployed](./)
+* Link to video demonstration: https://drive.google.com/file/d/1P5v3u2HJ5x-z4WC1kU4-KJJC91B_WHEw/view
